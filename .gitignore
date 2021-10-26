@@ -30,3 +30,6 @@ generator/nanopb_pb2.pyc
 bazel-*
 extra/poetry/build
 !cds_nanopb/**
+
+!cds_*.pb.c
+!cds_*.pb.h
