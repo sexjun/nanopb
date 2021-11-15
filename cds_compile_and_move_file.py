@@ -11,7 +11,7 @@ def delete_file(filename):
 
 def copy_file(src_path, dest_path):
     if(os.path.exists(dest_path)):
-        del_file(dest_path)
+        delete_file(dest_path)
     
     if(os.path.exists(src_path)):
         try:
