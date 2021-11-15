@@ -9,4 +9,7 @@
 PB_BIND(SimpleMessage, SimpleMessage, AUTO)
 
 
+PB_BIND(Persion, Persion, AUTO)
+
+
 

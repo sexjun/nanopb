@@ -6,5 +6,14 @@ syntax = "proto2";
 message SimpleMessage {
     required int32 lucky_number = 1;
     required int32 lucky_number222 = 2;
+};
+
+// 对象
+message Persion {
+    required string name = 1;
+    required int32 age = 2;
+    repeated string friends = 3;
 }
+
+// 枚举
 

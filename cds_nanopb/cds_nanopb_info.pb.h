@@ -10,6 +10,13 @@
 #endif
 
 /* Struct definitions */
+/* ∂‘œÛ */
+typedef struct _Persion { 
+    pb_callback_t name; 
+    int32_t age; 
+    pb_callback_t friends; 
+} Persion;
+
 typedef struct _SimpleMessage { 
     int32_t lucky_number; 
     int32_t lucky_number222; 
@@ -22,9 +29,14 @@ extern "C" {
 
 /* Initializer values for message structs */
 #define SimpleMessage_init_default               {0, 0}
+#define Persion_init_default                     {{{NULL}, NULL}, 0, {{NULL}, NULL}}
 #define SimpleMessage_init_zero                  {0, 0}
+#define Persion_init_zero                        {{{NULL}, NULL}, 0, {{NULL}, NULL}}
 
 /* Field tags (for use in manual encoding/decoding) */
+#define Persion_name_tag                         1
+#define Persion_age_tag                          2
+#define Persion_friends_tag                      3
 #define SimpleMessage_lucky_number_tag           1
 #define SimpleMessage_lucky_number222_tag        2
 
@@ -35,12 +47,22 @@ X(a, STATIC,   REQUIRED, INT32,    lucky_number222,   2)
 #define SimpleMessage_CALLBACK NULL
 #define SimpleMessage_DEFAULT NULL
 
+#define Persion_FIELDLIST(X, a) \
+X(a, CALLBACK, REQUIRED, STRING,   name,              1) \
+X(a, STATIC,   REQUIRED, INT32,    age,               2) \
+X(a, CALLBACK, REPEATED, STRING,   friends,           3)
+#define Persion_CALLBACK pb_default_field_callback
+#define Persion_DEFAULT NULL
+
 extern const pb_msgdesc_t SimpleMessage_msg;
+extern const pb_msgdesc_t Persion_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define SimpleMessage_fields &SimpleMessage_msg
+#define Persion_fields &Persion_msg
 
 /* Maximum encoded size of messages (where known) */
+/* Persion_size depends on runtime parameters */
 #define SimpleMessage_size                       22
 
 #ifdef __cplusplus
